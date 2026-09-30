@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting to Attendance System...</title>
+  <title>Attendance System</title>
+  
   <script>
     (function() {
-      // 1. Grab parameters (?s=...&t=...) from QR scan
-      var searchParams = window.location.search;
+      var gasBase = "https://script.google.com/macros/s/AKfycbytX8QhNhYrEwZs7YbDnTzR-y4XgTrIcWmSP3z5vzzUqz3N55fb3gDqoS_yNOEz6uPO/exec";
+      var target = gasBase + window.location.search;
       
-      // 2. Your direct Apps Script URL
-      var gasAppUrl = "https://script.google.com/macros/s/AKfycbytX8QhNhYrEwZs7YbDnTzR-y4XgTrIcWmSP3z5vzzUqz3N55fb3gDqoS_yNOEz6uPO/exec";
-      
-      // 3. Cleanly forward inside full browser execution context
-      window.location.replace(gasAppUrl + searchParams);
+      // Force direct navigation
+      window.location.href = target;
     })();
   </script>
 </head>
 <body style="font-family: system-ui, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f1f5f9; color: #334155;">
-  <div style="text-align: center;">
-    <p style="font-size: 18px; font-weight: 600;">Opening attendance system...</p>
-    <p style="font-size: 14px; color: #64748b;">Please wait a moment.</p>
+  <div style="text-align: center; padding: 20px;">
+    <h2>Redirecting to Attendance System...</h2>
+    <p style="color: #64748b; margin-top: 10px;">If the page does not open automatically, tap below:</p>
+    <a id="manual-link" href="#" style="display: inline-block; margin-top: 15px; padding: 12px 20px; background-color: #4f46e5; color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">Open Check-In Form</a>
   </div>
+
+  <script>
+    var gasBase = "https://script.google.com/macros/s/AKfycbytX8QhNhYrEwZs7YbDnTzR-y4XgTrIcWmSP3z5vzzUqz3N55fb3gDqoS_yNOEz6uPO/exec";
+    document.getElementById('manual-link').href = gasBase + window.location.search;
+  </script>
 </body>
 </html>
